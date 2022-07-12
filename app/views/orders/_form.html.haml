@@ -1,0 +1,52 @@
+.row
+  .col-md-6.mb-3
+    .mb-12
+      = f.label :client, { class: "form-label"}
+      .input-group.has-validation
+        %span.input-group-text
+          %i.fa-solid.fa-user-plus
+        = f.text_field :client, { class: "form-control" }
+-#    .mb-12
+-#      = f.label :phone, { class: "form-label"}
+-#      .input-group.has-validation
+-#        %span.input-group-text
+-#          %i.fa-solid.fa-phone
+-#        = f.text_field :phone, { class: "form-control" }
+-#    .mb-12
+-#      = f.label :student_category, { class: "form-label"}
+-#      .input-group.has-validation
+-#        %span.input-group-text
+-#          %i.fa-solid.fa-at
+-#        = f.select :student_category_id, StudentCategory.all.collect { |p| [ p.name, p.id ] }, { include_blank: true }, { class: "form-control" }
+-#    .mb-12
+-#      = f.label :student_category, { class: "form-label"}
+-#      .input-group.has-validation
+-#        %span.input-group-text
+-#          %i.fa-solid.fa-at
+-#        = f.select :student_level_id, StudentLevel.all.collect { |p| [ p.name, p.id ] }, { include_blank: true }, { class: "form-control" }
+-#  .col-md-6.mb-3
+-#    .mb-12
+-#      = f.label :email, { class: "form-label"}
+-#      .input-group.has-validation
+-#        %span.input-group-text
+-#          %i.fa-solid.fa-at
+-#        = f.text_field :email, { class: "form-control" }
+-#    .mb-12
+-#      = f.label :book, { class: "form-label"}
+-#      .input-group.has-validation
+-#        %span.input-group-text
+-#          %i.fa-solid.fa-at
+-#        = f.text_field :book, { class: "form-control" }
+-#    .mb-12
+-#      = f.label :tg, { class: "form-label"}
+-#      .input-group.has-validation
+-#        %span.input-group-text
+-#          %i.fa-solid.fa-at
+-#        = f.text_field :tg, { class: "form-control" }
+-#    .mb-12
+-#      = f.label :vk, { class: "form-label"}
+-#      .input-group.has-validation
+-#        %span.input-group-text
+-#          %i.fa-solid.fa-at
+-#        = f.text_field :vk, { class: "form-control" }
+-#= hidden_field(:client, :user_id, { value: current_user.id })

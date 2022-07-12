@@ -1,0 +1,22 @@
+.card
+  .card-body.form-group
+    %h1
+      Исполнители услуг
+    %a.btn.btn-outline-primary{href: new_executor_path}
+      = 'Имя исполнителя'
+    %table.table.table-hover
+      %thead
+        %tr
+          %th= 'id'
+          %th= 'Имя'
+          %th= 'Дата создания'
+          %th
+      %tbodys
+        - @executors.each do |executor|
+          %tr{style: "vertical-align: middle;"}
+            %td= executor.id
+            %td= link_to executor.name, executor_path(executor), { class: 'nav-link' }
+            %td= executor.created_at
+            %td
+              = link_to "Редактировать", edit_executor_path(executor)
+              = link_to "Удалить", executor_path(executor), { method: :delete }

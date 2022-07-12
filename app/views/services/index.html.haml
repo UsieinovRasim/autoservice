@@ -1,0 +1,22 @@
+.card
+  .card-body.form-group
+    %h1
+      Услуги
+    %a.btn.btn-outline-primary{href: new_service_path}
+      = 'Новая услуга'
+    %table.table.table-hover
+      %thead
+        %tr
+          %th= 'id'
+          %th= 'Название'
+          %th= 'Дата создания'
+          %th
+      %tbodys
+        - @services.each do |service|
+          %tr{style: "vertical-align: middle;"}
+            %td= service.id
+            %td= link_to service.name, service_path(service), { class: 'nav-link' }
+            %td= service.created_at
+            %td
+              = link_to "Редактировать", edit_service_path(service)
+              = link_to "Удалить", service_path(service), { method: :delete }

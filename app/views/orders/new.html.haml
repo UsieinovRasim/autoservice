@@ -1,0 +1,18 @@
+.card
+  .card-body
+    %h1
+      Новый заказ
+    = form_with(model: @order) do |f|
+      %fieldset.no-border-top
+        .row
+      .col-md-6.mb-3
+        .mb-12
+          = f.label :client, { class: "form-label"}
+          .input-group.has-validation
+            %span.input-group-text
+              %i.fa-solid.fa-user-plus
+            = f.text_field :client, { class: "form-control" }
+
+        %br
+        .form-buttons.filter-actions.actions
+          = f.submit "Submit", class: "btn btn-primary"

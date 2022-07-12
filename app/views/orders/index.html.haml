@@ -1,0 +1,22 @@
+.card
+  .card-body.form-group
+    %h1
+      Заказы
+    %a.btn.btn-outline-primary{href: new_order_path}
+      = 'Новый заказ'
+    %table.table.table-hover
+      %thead
+        %tr
+          %th= 'id'
+          %th= 'Клиент'
+          %th= 'Дата создания'
+          %th
+      %tbodys
+        - @orders.each do |order|
+          %tr{style: "vertical-align: middle;"}
+            %td= order.id
+            %td= order.client
+            %td= order.created_at
+            %td
+              = link_to "Редактировать", edit_order_path(order)
+              = link_to "Удалить", order_path(order), { method: :delete }

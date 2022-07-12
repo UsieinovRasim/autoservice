@@ -6,11 +6,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  <div class="container-fluid pb-3">
+    <div class="d-grid gap-3" style="grid-template-columns: 1fr 4fr;">
+      <div class="bg-light border rounded-3">
+        <%= render "layouts/sidebar_navigation" %>
+      </div>
+      <div class="main-container">
+        <%# flash.each do |k, v| %>
+          <%# k = %w[alert error danger].include?(k) ? 'danger' : 'success' %>
+          <%#= tag.div v, class: "alert alert-#{k} alert-dismissible", role: 'alert' %>
+        <%# end %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
   </body>
 </html>

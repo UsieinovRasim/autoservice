@@ -1,0 +1,22 @@
+.card
+  .card-body.form-group
+    %h1
+      Категории услуг
+    %a.btn.btn-outline-primary{href: new_category_path}
+      = 'Новая услуга'
+    %table.table.table-hover
+      %thead
+        %tr
+          %th= 'id'
+          %th= 'Название'
+          %th= 'Дата создания'
+          %th
+      %tbodys
+        - @categories.each do |category|
+          %tr{style: "vertical-align: middle;"}
+            %td= category.id
+            %td= link_to category.name, category_path(category), { class: 'nav-link' }
+            %td= category.created_at
+            %td
+              = link_to "Редактировать", edit_category_path(category)
+              = link_to "Удалить", category_path(category), { method: :delete }

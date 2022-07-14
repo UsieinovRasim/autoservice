@@ -19,4 +19,4 @@
             %td= executor.created_at
             %td
               = link_to "Редактировать", edit_executor_path(executor)
-              = link_to "Удалить", executor_path(executor), { method: :delete }
+              = link_to "Удалить", executor_path(executor), method: :delete, data: { confirm: "Вы уверены?" }

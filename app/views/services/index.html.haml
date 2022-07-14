@@ -19,4 +19,4 @@
             %td= service.created_at
             %td
               = link_to "Редактировать", edit_service_path(service)
-              = link_to "Удалить", service_path(service), { method: :delete }
+              = link_to "Удалить", service_path(service), method: :delete, data: { confirm: "Вы уверены?" }

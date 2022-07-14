@@ -12,7 +12,12 @@
             %span.input-group-text
               %i.fa-solid.fa-user-plus
             = f.text_field :client, { class: "form-control" }
-
+        .mb-12
+          = f.label :service_id, { class: "form-label" }
+          .input-group.has-validation
+            %span.input-group-text
+              %i.fa-solid.fa-at
+            = f.select :service_ids, Service.all.collect { |p| [ p.name, p.id ] }, { include_blank: true }, { class: "form-control", multiple: true }
         %br
         .form-buttons.filter-actions.actions
           = f.submit "Submit", class: "btn btn-primary"

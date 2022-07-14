@@ -1,18 +1,23 @@
 .card
   .card-body
     %h1
-      Заказы
+      Новый заказ
     = form_with(model: @order) do |f|
       %fieldset.no-border-top
         .row
       .col-md-6.mb-3
         .mb-12
-          = f.label :name, { class: "form-label"}
+          = f.label :client, { class: "form-label"}
           .input-group.has-validation
             %span.input-group-text
               %i.fa-solid.fa-user-plus
-            = f.text_field :name, { class: "form-control" }
-
+            = f.text_field :client, { class: "form-control" }
+        .mb-12
+          = f.label :service_id, { class: "form-label"}
+          .input-group.has-validation
+            %span.input-group-text
+              %i.fa-solid.fa-at
+            = f.select :service_ids, Service.all.collect { |p| [ p.name, p.id ] }, { include_blank: true }, { class: "form-control", multiple: true }
         %br
         .form-buttons.filter-actions.actions
           = f.submit "Submit", class: "btn btn-primary"

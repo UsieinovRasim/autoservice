@@ -2,3 +2,5 @@
   .card-body
     %h1
       = @service.name
+    - @service.executors.each do |executor|
+      = executor.name

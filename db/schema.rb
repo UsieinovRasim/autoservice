@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_12_164310) do
+ActiveRecord::Schema.define(version: 2022_07_14_140232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 2022_07_12_164310) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "executors_services", id: false, force: :cascade do |t|
+    t.bigint "service_id"
+    t.bigint "executor_id"
+    t.index ["executor_id"], name: "index_executors_services_on_executor_id"
+    t.index ["service_id"], name: "index_executors_services_on_service_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "client"
     t.datetime "created_at", precision: 6, null: false
@@ -34,9 +41,10 @@ ActiveRecord::Schema.define(version: 2022_07_12_164310) do
   end
 
   create_table "orders_services", id: false, force: :cascade do |t|
-    t.bigint "service_id", null: false
-    t.bigint "order_id", null: false
-    t.index ["service_id", "order_id"], name: "index_orders_services_on_service_id_and_order_id", unique: true
+    t.bigint "order_id"
+    t.bigint "service_id"
+    t.index ["order_id"], name: "index_orders_services_on_order_id"
+    t.index ["service_id"], name: "index_orders_services_on_service_id"
   end
 
   create_table "services", force: :cascade do |t|

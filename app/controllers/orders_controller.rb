@@ -47,6 +47,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:client)
+    params.require(:order).permit(:client, service_ids: [])
   end
 end

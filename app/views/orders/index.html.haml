@@ -16,7 +16,7 @@
           %tr{style: "vertical-align: middle;"}
             %td= order.id
             %td= link_to order.client, order_path(order), { class: 'nav-link' }
-            %td= order.created_at
+            %td= order.created_at.strftime('%d.%m.%Y - %H:%M')
             %td
               = link_to "Редактировать", edit_order_path(order)
               = link_to "Удалить", order_path(order), method: :delete, data: { confirm: "Вы уверены?" }

@@ -16,7 +16,7 @@
           %tr{style: "vertical-align: middle;"}
             %td= service.id
             %td= link_to service.name, service_path(service), { class: 'nav-link' }
-            %td= service.created_at
+            %td= service.created_at.strftime('%d.%m.%Y - %H:%M')
             %td
               = link_to "Редактировать", edit_service_path(service)
               = link_to "Удалить", service_path(service), method: :delete, data: { confirm: "Вы уверены?" }

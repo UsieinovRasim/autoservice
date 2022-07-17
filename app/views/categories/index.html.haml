@@ -16,7 +16,7 @@
           %tr{style: "vertical-align: middle;"}
             %td= category.id
             %td= link_to category.name, category_path(category), { class: 'nav-link' }
-            %td= category.created_at
+            %td= category.created_at.strftime('%d.%m.%Y - %H:%M')
             %td
               = link_to "Редактировать", edit_category_path(category)
               = link_to "Удалить", category_path(category), method: :delete, data: { confirm: "Вы уверены?" }

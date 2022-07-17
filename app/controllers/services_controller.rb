@@ -4,8 +4,8 @@ class ServicesController < ApplicationController
   end
 
   def show
-    # binding.pry
     @service = Service.find(params[:id])
+    # binding.pry
   end
 
   def index
@@ -24,16 +24,24 @@ class ServicesController < ApplicationController
   end
 
   def create
+    executor = Executor.find(params[:service][:executor_id])
+    service = executor.services.new(service_params)
+    # service = Service.new(service_params)
     # binding.pry
-    @service = Service.new(service_params)
-
-    if @service.save
-      # flash[:success] = 'Клиент создан успешно'
+    if service.save
+      executor.services << service
       redirect_to services_path
     else
       # flash[:danger] = @client.errors.full_messages.join(', ')
       render :new
     end
+    # binding.pry
+    # @service = Service.new(service_params)
+    #
+    # if @service.save
+    #   # flash[:success] = 'Клиент создан успешно'
+    #   redirect_to services_path
+    # end
   end
 
   def destroy
@@ -45,6 +53,6 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:name, executor_ids: [])
+    params.require(:service).permit(:name)
   end
 end

@@ -18,5 +18,5 @@
             %td= link_to category.name, category_path(category), { class: 'nav-link' }
             %td= category.created_at.strftime('%d.%m.%Y - %H:%M')
             %td
-              = link_to "Редактировать", edit_category_path(category)
-              = link_to "Удалить", category_path(category), method: :delete, data: { confirm: "Вы уверены?" }
+              = link_to "Редактировать", edit_category_path(category), :class => 'btn btn-warning'
+              = link_to "Удалить", category_path(category), method: :delete, data: { confirm: "Вы уверены?" }, :class => 'btn btn-danger'

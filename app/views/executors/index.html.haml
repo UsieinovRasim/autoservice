@@ -18,5 +18,5 @@
             %td= link_to executor.name, executor_path(executor), { class: 'nav-link' }
             %td= executor.created_at.strftime('%d.%m.%Y - %H:%M')
             %td
-              = link_to "Редактировать", edit_executor_path(executor)
-              = link_to "Удалить", executor_path(executor), method: :delete, data: { confirm: "Вы уверены?" }
+              = link_to "Редактировать", edit_executor_path(executor), :class => 'btn btn-warning'
+              = link_to "Удалить", executor_path(executor), method: :delete, data: { confirm: "Вы уверены?" }, :class => 'btn btn-danger'
